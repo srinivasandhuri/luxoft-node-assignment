@@ -1,0 +1,106 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "API Documentation",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "basePath": "",
+    "schemes": [
+        "http",
+        "https"
+      ],
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+    "paths" : {
+       
+        "/users/userid/{id}" : {
+            "get" : {
+                "tags": [
+                    "users"
+                  ],
+                "summary" : "get the user",
+                "description": "get the user",
+                "produces": ["application/json"],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id that needs to be fetch",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/todosResponse"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value",
+                        "schema": {
+                            "$ref": "#/definitions/InvalidResponse"
+                        }
+                    }
+                }
+            }
+        }
+     }, 
+    "definitions": {
+        "todosResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                }  
+            }
+        },
+        "User": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "number"
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                }  
+            }
+        },
+        "InvalidResponse": {
+            "type": "object",
+            "properties": {
+                "statusCode": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+
+        }
+    }
+}
