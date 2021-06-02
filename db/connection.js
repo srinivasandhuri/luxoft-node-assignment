@@ -1,32 +1,12 @@
-// const mariadb = require('mariadb');
 
-// const pool = mariadb.createPool({
-//     host: '127.0.0.1', 
-//     user:'root', 
-//     password: 'mariadb',
-//     database:'luxsoft',
-//     connectionLimit: 5
-// });
-
-// module.exports = {
-//     getConnection: function(){
-//         return new Promise(function(resolve,reject){
-//           pool.getConnection().then(function(connection){
-//             resolve(connection);
-//           }).catch(function(error){
-//             reject(error);
-//           });
-//         });
-//       }
-//     } 
 
 const Sequelize = require("sequelize");
 const sequelize = new Sequelize({
-    host: '127.0.0.1', 
-    username:'root', 
-    password: 'mariadb',
+    host: '', 
+    username:'', 
+    password: '',
     dialect: 'mariadb',
-    database:'luxsoft',
+    database:'',
     connectionLimit: 5
 });
 
